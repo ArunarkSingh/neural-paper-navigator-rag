@@ -1,4 +1,4 @@
-# Paper Navigator
+# Neural Research Paper Navigator: Hybrid Retrieval and RAG for ML Literature
 
 Semantic search and retrieval-augmented Q&A over ~15,000 ML ArXiv papers.
 
@@ -22,20 +22,20 @@ Dataset (117k papers)
         └──► BM25Okapi index   (rank-bm25)
                 │
                 ▼
-        ┌───────────────────────────────────┐
-        │  Query                            │
-        │    ├─ Dense retrieve (FAISS)      │
-        │    ├─ Sparse retrieve (BM25)      │
-        │    └─ Fuse with RRF (k=60)       │
-        │         │                         │
-        │         ▼                         │
-        │  Cross-encoder rerank             │
-        │  (mixedbread-ai/mxbai-rerank-xsmall-v1) │
-        │         │                         │
-        │         ▼                         │
-        │  Groq Llama-3.1-8B               │
-        │  (grounded answer generation)     │
-        └───────────────────────────────────┘
+        ┌──────────────────────────────────────────┐
+        │  Query                                   │
+        │    ├─ Dense retrieve (FAISS)             │
+        │    ├─ Sparse retrieve (BM25)             │
+        │    └─ Fuse with RRF (k=60)               │
+        │         │                                │
+        │         ▼                                │
+        │  Cross-encoder rerank                    │
+        │  (mixedbread-ai/mxbai-rerank-xsmall-v1)  │
+        │         │                                │
+        │         ▼                                │
+        │  Groq Llama-3.1-8B                       │
+        │  (grounded answer generation)            │
+        └──────────────────────────────────────────┘
 ```
 
 ### Key design decisions
@@ -69,6 +69,71 @@ Evaluated on 5 ML queries using Groq Llama-3.1-8B as the LLM judge across three 
 | Dense only | 170ms | 176ms |
 | Dense + rerank | 323ms | 334ms |
 | RAG (hybrid + rerank + generation) | ~420ms retrieval + ~200ms generation |
+
+## Retrieval & System Analysis
+
+### Dataset Filtering
+
+The initial ArXiv dataset contains many classical mathematics and PDE papers where the word *diffusion* refers to differential equations rather than modern diffusion models.  
+A keyword-based ML filter removes non-ML papers before indexing.
+
+<p align="center">
+  <img src="/plots/01_dataset_filter.png" width="70%">
+</p>
+
+This reduces the dataset from **117,592 papers → 81,272 ML-relevant papers**, improving retrieval precision.
+
+---
+
+### Chunk Distribution
+
+Papers are chunked into overlapping windows of **220 words with 40-word overlap**.
+
+<p align="center">
+  <img src="/plots/02_chunks_per_paper.png" width="70%">
+</p>
+
+Most papers generate **one chunk** because the dataset contains titles + abstracts rather than full text.
+
+---
+
+### Retrieval Score Distributions
+
+Dense retrieval and cross-encoder reranking produce very different score distributions.
+
+<p align="center">
+  <img src="/plots/03_score_distributions.png" width="70%">
+</p>
+
+Observations:
+
+- Dense retrieval produces tightly clustered similarity scores (~0.70–0.82)
+- Cross-encoder reranking produces **highly separable relevance scores**
+- Reranking enables more precise ordering of top results
+
+---
+
+### Query Latency
+
+Latency measured across repeated queries.
+
+<p align="center">
+  <img src="/plots/04_latency_violin.png" width="70%">
+</p>
+
+Cross-encoder reranking increases latency but significantly improves precision.
+
+---
+
+### RAG Retrieval Evaluation
+
+Hybrid retrieval was evaluated against dense-only retrieval using a **RAGAS-style evaluation** with an LLM judge.
+
+<p align="center">
+  <img src="/plots/05_ragas_comparison.png" width="70%">
+</p>
+
+Hybrid retrieval improves **faithfulness and context precision** while maintaining similar answer relevancy.
 
 ---
 
