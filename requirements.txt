@@ -1,0 +1,26 @@
+# Core
+numpy==2.0.2
+pandas==2.2.2
+pyarrow>=14.0
+
+# Dataset & embeddings
+datasets>=2.18
+sentence-transformers>=2.7
+faiss-cpu>=1.8
+
+# Sparse retrieval
+rank-bm25>=0.2.2
+
+# RAG — answer generation
+groq>=0.9.0
+
+# Evaluation
+ragas>=0.1.0
+langchain>=0.2
+langchain-groq>=0.1
+
+# Visualisation
+matplotlib>=3.8
+
+# Progress bars
+tqdm>=4.66

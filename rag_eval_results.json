@@ -1,0 +1,541 @@
+{
+  "eval_queries": [
+    "What are the advantages of contrastive learning for self-supervised visual representations?",
+    "How do vision transformers use self-attention for image classification?",
+    "How do GANs enable image editing and style manipulation?",
+    "What methods improve few-shot learning generalization?",
+    "How does knowledge distillation compress large neural networks?"
+  ],
+  "dense_ragas": {
+    "faithfulness": 0.8333333333333333,
+    "answer_relevancy": 0.9199999999999999,
+    "context_precision": 0.41944444444444445
+  },
+  "hybrid_ragas": {
+    "faithfulness": 0.9166666666666667,
+    "answer_relevancy": 0.9,
+    "context_precision": 0.425
+  },
+  "dense_outputs": [
+    {
+      "question": "What are the advantages of contrastive learning for self-supervised visual representations?",
+      "answer": "According to Context 2, contrastive learning allows for the training of highly transferable visual representations. Additionally, Context 6 mentions that contrastive learning can learn generalizable feature representations.",
+      "contexts": [
+        "Self-supervised visual representation learning aims to learn useful representations without relying on human annotations. Joint embedding approach bases on maximizing the agreement between embedding vectors from different views of the same image. Various methods have been proposed to solve the collapsing problem where all embedding vectors collapse to a trivial constant solution. Among these methods, contrastive learning prevents collapse via negative sample pairs. It has been shown that non-con",
+        "Contrastive learning has become a key component of self-supervised learning approaches for computer vision. By learning to embed two augmented versions of the same image close to each other and to push the embeddings of different images apart, one can train highly transferable visual representations. As revealed by recent studies, heavy data augmentation and large sets of negatives are both crucial in learning such representations. At the same time, data mixing strategies either at the image or ",
+        "Contrastive self-supervised representation learning methods maximize the similarity between the positive pairs, and at the same time tend to minimize the similarity between the negative pairs. However, in general the interplay between the negative pairs is ignored as they do not put in place special mechanisms to treat negative pairs differently according to their specific differences and similarities. In this paper, we present Extended Momentum Contrast (XMoCo), a self-supervised representation",
+        "The state-of-the-art unsupervised contrastive visual representation learning methods that have emerged recently (SimCLR, MoCo, SwAV) all make use of data augmentations in order to construct a pretext task of instant discrimination consisting of similar and dissimilar pairs of images. Similar pairs are constructed by randomly extracting patches from the same image and applying several other transformations such as color jittering or blurring, while transformed patches from different image instanc",
+        "Contrastive learning (CL) can learn generalizable feature representations and achieve the state-of-the-art performance of downstream tasks by finetuning a linear classifier on top of it. However, as adversarial robustness becomes vital in image classification, it remains unclear whether or not CL is able to preserve robustness to downstream tasks. The main challenge is that in the self-supervised pretraining + supervised finetuning paradigm, adversarial robustness is easily forgotten due to a le",
+        "Contrastive learning (CL) is one of the most successful paradigms for self-supervised learning (SSL). In a principled way, it considers two augmented \"views\" of the same image as positive to be pulled closer, and all other images negative to be pushed further apart. However, behind the impressive success of CL-based techniques, their formulation often relies on heavy-computation settings, including large sample batches, extensive training epochs, etc. We are thus motivated to tackle these issues",
+        "Unsupervised graph representation learning is critical to a wide range of applications where labels may be scarce or expensive to procure. Contrastive learning (CL) is an increasingly popular paradigm for such settings and the state-of-the-art in unsupervised visual representation learning. Recent work attributes the success of visual CL to use of task-relevant augmentations and large, diverse datasets. Interestingly, graph CL frameworks report strong performance despite using orders of magnitud",
+        "Sensory input from multiple sources is crucial for robust and coherent human perception. Different sources contribute complementary explanatory factors. Similarly, research studies often collect multimodal imaging data, each of which can provide shared and unique information. This observation motivated the design of powerful multimodal self-supervised representation-learning algorithms. In this paper, we unify recent work on multimodal self-supervised learning under a single framework. Observing"
+      ],
+      "source_papers": [
+        {
+          "title": "Understanding Dimensional Collapse in Contrastive Self-supervised Learning",
+          "url": ""
+        },
+        {
+          "title": "Hard Negative Mixing for Contrastive Learning",
+          "url": ""
+        },
+        {
+          "title": "Extending Momentum Contrast with Cross Similarity Consistency Regularization",
+          "url": ""
+        },
+        {
+          "title": "Batch Curation for Unsupervised Contrastive Representation Learning",
+          "url": ""
+        },
+        {
+          "title": "When Does Contrastive Learning Preserve Adversarial Robustness from Pretraining to Finetuning?",
+          "url": ""
+        },
+        {
+          "title": "Decoupled Contrastive Learning",
+          "url": ""
+        },
+        {
+          "title": "Augmentations in Graph Contrastive Learning: Current Methodological Flaws & Towards Better Practices",
+          "url": ""
+        },
+        {
+          "title": "Self-Supervised Multimodal Domino: in Search of Biomarkers for Alzheimer's Disease",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "dense",
+      "retrieval_ms": 345.7,
+      "generation_ms": 251.8
+    },
+    {
+      "question": "How do vision transformers use self-attention for image classification?",
+      "answer": "According to Context 2, Vision Transformers (ViTs) rely on more flexible self-attention layers for image classification, and have recently outperformed CNNs for this task.",
+      "contexts": [
+        "Following their success in natural language processing, transformers have recently shown much promise for computer vision. The self-attention operation underlying transformers yields global interactions between all tokens ,i.e. words or image patches, and enables flexible modelling of image data beyond the local interactions of convolutions. This flexibility, however, comes with a quadratic complexity in time and memory, hindering application to long sequences and high-resolution images. We prop",
+        "Convolutional architectures have proven extremely successful for vision tasks. Their hard inductive biases enable sample-efficient learning, but come at the cost of a potentially lower performance ceiling. Vision Transformers (ViTs) rely on more flexible self-attention layers, and have recently outperformed CNNs for image classification. However, they require costly pre-training on large external datasets or distillation from pre-trained convolutional networks. In this paper, we ask the followin",
+        "Transformers have made great progress in dealing with computer vision tasks. However, existing vision transformers do not yet possess the ability of building the interactions among features of different scales, which is perceptually important to visual inputs. The reasons are two-fold: (1) Input embeddings of each layer are equal-scale, so no cross-scale feature can be extracted; (2) to lower the computational cost, some vision transformers merge adjacent embeddings inside the self-attention mod",
+        "Recent studies indicate that hierarchical Vision Transformer with a macro architecture of interleaved non-overlapped window-based self-attention \\& shifted-window operation is able to achieve state-of-the-art performance in various visual recognition tasks, and challenges the ubiquitous convolutional neural networks (CNNs) using densely slid kernels. Most follow-up works attempt to replace the shifted-window operation with other kinds of cross-window communication paradigms, while treating self-",
+        "Transformers have recently gained significant attention in the computer vision community. However, the lack of scalability of self-attention mechanisms with respect to image size has limited their wide adoption in state-of-the-art vision backbones. In this paper we introduce an efficient and scalable attention model we call multi-axis attention, which consists of two aspects: blocked local and dilated global attention. These design choices allow global-local spatial interactions on arbitrary inp",
+        "Transformers, composed of multiple self-attention layers, hold strong promises toward a generic learning primitive applicable to different data modalities, including the recent breakthroughs in computer vision achieving state-of-the-art (SOTA) standard accuracy. What remains largely unexplored is their robustness evaluation and attribution. In this work, we study the robustness of the Vision Transformer (ViT) against common corruptions and perturbations, distribution shifts, and natural adversar",
+        "Modelling long-range dependencies is critical for scene understanding tasks in computer vision. Although convolution neural networks (CNNs) have excelled in many vision tasks, they are still limited in capturing long-range structured relationships as they typically consist of layers of local kernels. A fully-connected graph, such as the self-attention operation in Transformers, is beneficial for such modelling, however, its computational overhead is prohibitive. In this paper, we propose a dynam",
+        "Recent advances in self-attention and pure multi-layer perceptrons (MLP) models for vision have shown great potential in achieving promising performance with fewer inductive biases. These models are generally based on learning interaction among spatial locations from raw data. The complexity of self-attention and MLP grows quadratically as the image size increases, which makes these models hard to scale up when high-resolution features are required. In this paper, we present the Global Filter Ne"
+      ],
+      "source_papers": [
+        {
+          "title": "XCiT: Cross-Covariance Image Transformers",
+          "url": ""
+        },
+        {
+          "title": "ConViT: Improving Vision Transformers with Soft Convolutional Inductive Biases",
+          "url": ""
+        },
+        {
+          "title": "CrossFormer: A Versatile Vision Transformer Hinging on Cross-scale Attention",
+          "url": ""
+        },
+        {
+          "title": "What Makes for Hierarchical Vision Transformer?",
+          "url": ""
+        },
+        {
+          "title": "MaxViT: Multi-Axis Vision Transformer",
+          "url": ""
+        },
+        {
+          "title": "Vision Transformers are Robust Learners",
+          "url": ""
+        },
+        {
+          "title": "Dynamic Graph Message Passing Networks",
+          "url": ""
+        },
+        {
+          "title": "Global Filter Networks for Image Classification",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "dense",
+      "retrieval_ms": 363.6,
+      "generation_ms": 171.4
+    },
+    {
+      "question": "How do GANs enable image editing and style manipulation?",
+      "answer": "Based on the provided context, GANs enable image editing and style manipulation by allowing for the manipulation of style vectors (Context 1), leveraging the power of latent spaces (Context 2), and modifying the feature-space representation of an image (Context 3).",
+      "contexts": [
+        "While the quality of GAN image synthesis has improved tremendously in recent years, our ability to control and condition the output is still limited. Focusing on StyleGAN, we introduce a simple and effective method for making local, semantically-aware edits to a target output image. This is accomplished by borrowing elements from a source image, also a GAN output, via a novel manipulation of style vectors. Our method requires neither supervision from an external model, nor involves complex spati",
+        "Inspired by the ability of StyleGAN to generate highly realistic images in a variety of domains, much recent work has focused on understanding how to use the latent spaces of StyleGAN to manipulate generated and real images. However, discovering semantically meaningful latent manipulations typically involves painstaking human examination of the many degrees of freedom, or an annotated collection of images for each desired manipulation. In this work, we explore leveraging the power of recently in",
+        "We present a novel CNN-based image editing strategy that allows the user to change the semantic information of an image over an arbitrary region by manipulating the feature-space representation of the image in a trained GAN model. We will present two variants of our strategy: (1) spatial conditional batch normalization (sCBN), a type of conditional batch normalization with user-specifiable spatial weight maps, and (2) feature-blending, a method of directly modifying the intermediate features. Ou",
+        "Generative Adversarial Networks (GANs) have established themselves as a prevalent approach to image synthesis. Of these, StyleGAN offers a fascinating case study, owing to its remarkable visual quality and an ability to support a large array of downstream tasks. This state-of-the-art report covers the StyleGAN architecture, and the ways it has been employed since its conception, while also analyzing its severe limitations. It aims to be of use for both newcomers, who wish to get a grasp of the f",
+        "in popularity. Meanwhile, this same study has helped shed light on the inner workings and limitations of StyleGAN. We map out StyleGAN's impressive story through these investigations, and discuss the details that have made StyleGAN the go-to generator. We further elaborate on the visual priors StyleGAN constructs, and discuss their use in downstream discriminative tasks. Looking forward, we point out StyleGAN's limitations and speculate on current trends and promising directions for future resea",
+        "Recently, GAN inversion methods combined with Contrastive Language-Image Pretraining (CLIP) enables zero-shot image manipulation guided by text prompts. However, their applications to diverse real images are still difficult due to the limited GAN inversion capability. Specifically, these approaches often have difficulties in reconstructing images with novel poses, views, and highly variable contents compared to the training data, altering object identity, or producing unwanted image artifacts. T",
+        "Empirical works suggest that various semantics emerge in the latent space of Generative Adversarial Networks (GANs) when being trained to generate images. To perform real image editing, it requires an accurate mapping from the real image to the latent space to leveraging these learned semantics, which is important yet difficult. An in-domain GAN inversion approach is recently proposed to constraint the inverted code within the latent space by forcing the reconstructed image obtained from the inv",
+        "Generative Adversarial Networks (GANs) have achieved state-of-the-art performance for several image generation and manipulation tasks. Different works have improved the limited understanding of the latent space of GANs by embedding images into specific GAN architectures to reconstruct the original images. We present a novel StyleGAN-based autoencoder architecture, which can reconstruct images with very high quality across several data domains. We demonstrate a previously unknown grade of general",
+        "Although Generative Adversarial Networks (GANs) have made significant progress in face synthesis, there lacks enough understanding of what GANs have learned in the latent representation to map a random code to a photo-realistic image. In this work, we propose a framework called InterFaceGAN to interpret the disentangled face representation learned by the state-of-the-art GAN models and study the properties of the facial semantics encoded in the latent space. We first find that GANs learn various"
+      ],
+      "source_papers": [
+        {
+          "title": "Editing in Style: Uncovering the Local Semantics of GANs",
+          "url": ""
+        },
+        {
+          "title": "StyleCLIP: Text-Driven Manipulation of StyleGAN Imagery",
+          "url": ""
+        },
+        {
+          "title": "Spatially Controllable Image Synthesis with Internal Representation Collaging",
+          "url": ""
+        },
+        {
+          "title": "State-of-the-Art in the Architecture, Methods and Applications of StyleGAN",
+          "url": ""
+        },
+        {
+          "title": "DiffusionCLIP: Text-Guided Diffusion Models for Robust Image Manipulation",
+          "url": ""
+        },
+        {
+          "title": "Force-in-domain GAN inversion",
+          "url": ""
+        },
+        {
+          "title": "One Model to Reconstruct Them All: A Novel Way to Use the Stochastic Noise in StyleGAN",
+          "url": ""
+        },
+        {
+          "title": "InterFaceGAN: Interpreting the Disentangled Face Representation Learned by GANs",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "dense",
+      "retrieval_ms": 323.3,
+      "generation_ms": 9417.3
+    },
+    {
+      "question": "What methods improve few-shot learning generalization?",
+      "answer": "Based on the provided context, the following methods improve few-shot learning generalization:\n\n1. A large margin principle to improve the generalization capacity of metric-based methods (Context 1).\n2. Model-agnostic meta-learning (MAML) by formulating prior knowledge as a common initialization across tasks (Context 2).\n3. A novel regularization method, meta-dropout, which learns to perturb the latent features to achieve better generalization performance (Context 6).\n4. Few-Shot Diffusion Models (FSDM), a framework for few-shot generation leveraging conditional DDPMs (Context 7).\n5. A novel approach that proposes a unified framework to learn a more discriminative metric space (Context 1).\n6. A novel approach that proposes a task-agnostic embedding function learned optimally discriminative with respect to the unseen classes (Context 8).",
+      "contexts": [
+        "The key issue of few-shot learning is learning to generalize. This paper proposes a large margin principle to improve the generalization capacity of metric based methods for few-shot learning. To realize it, we develop a unified framework to learn a more discriminative metric space by augmenting the classification loss function with a large margin distance loss function for training. Extensive experiments on two state-of-the-art few-shot learning methods, graph neural networks and prototypical n",
+        "Few-shot learning is a challenging problem where the goal is to achieve generalization from only few examples. Model-agnostic meta-learning (MAML) tackles the problem by formulating prior knowledge as a common initialization across tasks, which is then used to quickly adapt to unseen tasks. However, forcibly sharing an initialization can lead to conflicts among tasks and the compromised (undesired by tasks) location on optimization landscape, thereby hindering the task adaptation. Further, we ob",
+        "Few-shot algorithms aim at learning new tasks provided only a handful of training examples. In this work we investigate few-shot learning in the setting where the data points are sequences of tokens and propose an efficient learning algorithm based on Transformers. In the simplest setting, we append a token to an input sequence which represents the particular task to be undertaken, and show that the embedding of this token can be optimized on the fly given few labeled examples. Our approach does",
+        "In few-shot learning, a machine learning system learns from a small set of labelled examples relating to a specific task, such that it can generalize to new examples of the same task. Given the limited availability of labelled examples in such tasks, we wish to make use of all the information we can. Usually a model learns task-specific information from a small training-set (support-set) to predict on an unlabelled validation set (target-set). The target-set contains additional task-specific inf",
+        "Humans are capable of learning new concepts from small numbers of examples. In contrast, supervised deep learning models usually lack the ability to extract reliable predictive rules from limited data scenarios when attempting to classify new examples. This challenging scenario is commonly known as few-shot learning. Few-shot learning has garnered increased attention in recent years due to its significance for many real-world problems. Recently, new methods relying on meta-learning paradigms com",
+        "A machine learning model that generalizes well should obtain low errors on unseen test examples. Thus, if we know how to optimally perturb training examples to account for test examples, we may achieve better generalization performance. However, obtaining such perturbation is not possible in standard machine learning frameworks as the distribution of the test data is unknown. To tackle this challenge, we propose a novel regularization method, meta-dropout, which learns to perturb the latent feat",
+        "Denoising diffusion probabilistic models (DDPM) are powerful hierarchical latent variable models with remarkable sample generation quality and training stability. These properties can be attributed to parameter sharing in the generative hierarchy, as well as a parameter-free diffusion-based inference procedure. In this paper, we present Few-Shot Diffusion Models (FSDM), a framework for few-shot generation leveraging conditional DDPMs. FSDMs are trained to adapt the generative process conditioned",
+        "Learning with limited data is a key challenge for visual recognition. Many few-shot learning methods address this challenge by learning an instance embedding function from seen classes and apply the function to instances from unseen classes with limited labels. This style of transfer learning is task-agnostic: the embedding function is not learned optimally discriminative with respect to the unseen classes, where discerning among them leads to the target task. In this paper, we propose a novel a"
+      ],
+      "source_papers": [
+        {
+          "title": "Large Margin Few-Shot Learning",
+          "url": ""
+        },
+        {
+          "title": "Learning to Forget for Meta-Learning",
+          "url": ""
+        },
+        {
+          "title": "Few-shot Sequence Learning with Transformers",
+          "url": ""
+        },
+        {
+          "title": "Learning to learn via Self-Critique",
+          "url": ""
+        },
+        {
+          "title": "Looking back to lower-level information in few-shot learning",
+          "url": ""
+        },
+        {
+          "title": "Meta Dropout: Learning to Perturb Features for Generalization",
+          "url": ""
+        },
+        {
+          "title": "Few-Shot Diffusion Models",
+          "url": ""
+        },
+        {
+          "title": "Few-Shot Learning via Embedding Adaptation with Set-to-Set Functions",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "dense",
+      "retrieval_ms": 322.3,
+      "generation_ms": 8569.7
+    },
+    {
+      "question": "How does knowledge distillation compress large neural networks?",
+      "answer": "Based on the provided context, knowledge distillation (KD) compresses large neural networks by transferring the knowledge captured by a large model (teacher) to a smaller model (student), reducing the memory sizes and energy consumption of neural networks.",
+      "contexts": [
+        "With the increasing popularity of deep learning on edge devices, compressing large neural networks to meet the hardware requirements of resource-constrained devices became a significant research direction. Numerous compression methodologies are currently being used to reduce the memory sizes and energy consumption of neural networks. Knowledge distillation (KD) is among such methodologies and it functions by using data samples to transfer the knowledge captured by a large model (teacher) to a sm",
+        "Knowledge distillation (KD) has proved to be an effective approach for deep neural network compression, which learns a compact network (student) by transferring the knowledge from a pre-trained, over-parameterized network (teacher). In traditional KD, the transferred knowledge is usually obtained by feeding training samples to the teacher network to obtain the class probabilities. However, the original training dataset is not always available due to storage costs or privacy issues. In this study",
+        "The deep layers of modern neural networks extract a rather rich set of features as an input propagates through the network. This paper sets out to harvest these rich intermediate representations for quantization with minimal accuracy loss while significantly reducing the memory footprint and compute intensity of the DNN. This paper utilizes knowledge distillation through teacher-student paradigm (Hinton et al., 2015) in a novel setting that exploits the feature extraction capability of DNNs for ",
+        "Often we wish to transfer representational knowledge from one neural network to another. Examples include distilling a large network into a smaller one, transferring knowledge from one sensory modality to a second, or ensembling a collection of models into a single estimator. Knowledge distillation, the standard approach to these problems, minimizes the KL divergence between the probabilistic outputs of a teacher and student network. We demonstrate that this objective ignores important structura",
+        "The quantization of deep neural networks (QDNNs) has been actively studied for deployment in edge devices. Recent studies employ the knowledge distillation (KD) method to improve the performance of quantized networks. In this study, we propose stochastic precision ensemble training for QDNNs (SPEQ). SPEQ is a knowledge distillation training scheme; however, the teacher is formed by sharing the model parameters of the student network. We obtain the soft labels of the teacher by changing the bit p",
+        "In recent years, deep neural networks have been successful in both industry and academia, especially for computer vision tasks. The great success of deep learning is mainly due to its scalability to encode large-scale data and to maneuver billions of model parameters. However, it is a challenge to deploy these cumbersome deep models on devices with limited resources, e.g., mobile phones and embedded devices, not only because of the high computational complexity but also the large storage require",
+        "Knowledge distillation is an effective technique that transfers knowledge from a large teacher model to a shallow student. However, just like massive classification, large scale knowledge distillation also imposes heavy computational costs on training models of deep neural networks, as the softmax activations at the last layer involve computing probabilities over numerous classes. In this work, we apply the idea of importance sampling which is often used in Neural Machine Translation on large sc",
+        "Knowledge distillation has recently become a popular technique to improve the model generalization ability on convolutional neural networks. However, its effect on graph neural networks is less than satisfactory since the graph topology and node attributes are likely to change in a dynamic way and in this case a static teacher model is insufficient in guiding student training. In this paper, we tackle this challenge by simultaneously training a group of graph neural networks in an online distill"
+      ],
+      "source_papers": [
+        {
+          "title": "Preventing Catastrophic Forgetting and Distribution Mismatch in Knowledge Distillation via Synthetic Data",
+          "url": ""
+        },
+        {
+          "title": "Data-Free Knowledge Distillation with Soft Targeted Transfer Set Synthesis",
+          "url": ""
+        },
+        {
+          "title": "Divide and Conquer: Leveraging Intermediate Feature Representations for Quantized Training of Neural Networks",
+          "url": ""
+        },
+        {
+          "title": "Contrastive Representation Distillation",
+          "url": ""
+        },
+        {
+          "title": "Stochastic Precision Ensemble: Self-Knowledge Distillation for Quantized Deep Neural Networks",
+          "url": ""
+        },
+        {
+          "title": "Knowledge Distillation: A Survey",
+          "url": ""
+        },
+        {
+          "title": "Accelerating Large Scale Knowledge Distillation via Dynamic Importance Sampling",
+          "url": ""
+        },
+        {
+          "title": "Online Adversarial Distillation for Graph Neural Networks",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "dense",
+      "retrieval_ms": 328.2,
+      "generation_ms": 8340.5
+    }
+  ],
+  "hybrid_outputs": [
+    {
+      "question": "What are the advantages of contrastive learning for self-supervised visual representations?",
+      "answer": "According to Context 2, contrastive learning allows for the training of highly transferable visual representations. Additionally, Context 6 mentions that contrastive learning can learn generalizable feature representations and achieve state-of-the-art performance on downstream tasks by fine-tuning a linear classifier on top of it.",
+      "contexts": [
+        "Self-supervised visual representation learning aims to learn useful representations without relying on human annotations. Joint embedding approach bases on maximizing the agreement between embedding vectors from different views of the same image. Various methods have been proposed to solve the collapsing problem where all embedding vectors collapse to a trivial constant solution. Among these methods, contrastive learning prevents collapse via negative sample pairs. It has been shown that non-con",
+        "Contrastive learning has become a key component of self-supervised learning approaches for computer vision. By learning to embed two augmented versions of the same image close to each other and to push the embeddings of different images apart, one can train highly transferable visual representations. As revealed by recent studies, heavy data augmentation and large sets of negatives are both crucial in learning such representations. At the same time, data mixing strategies either at the image or ",
+        "Contrastive self-supervised representation learning methods maximize the similarity between the positive pairs, and at the same time tend to minimize the similarity between the negative pairs. However, in general the interplay between the negative pairs is ignored as they do not put in place special mechanisms to treat negative pairs differently according to their specific differences and similarities. In this paper, we present Extended Momentum Contrast (XMoCo), a self-supervised representation",
+        "The state-of-the-art unsupervised contrastive visual representation learning methods that have emerged recently (SimCLR, MoCo, SwAV) all make use of data augmentations in order to construct a pretext task of instant discrimination consisting of similar and dissimilar pairs of images. Similar pairs are constructed by randomly extracting patches from the same image and applying several other transformations such as color jittering or blurring, while transformed patches from different image instanc",
+        "Contrastive learning (CL) can learn generalizable feature representations and achieve the state-of-the-art performance of downstream tasks by finetuning a linear classifier on top of it. However, as adversarial robustness becomes vital in image classification, it remains unclear whether or not CL is able to preserve robustness to downstream tasks. The main challenge is that in the self-supervised pretraining + supervised finetuning paradigm, adversarial robustness is easily forgotten due to a le",
+        "Contrastive learning (CL) is one of the most successful paradigms for self-supervised learning (SSL). In a principled way, it considers two augmented \"views\" of the same image as positive to be pulled closer, and all other images negative to be pushed further apart. However, behind the impressive success of CL-based techniques, their formulation often relies on heavy-computation settings, including large sample batches, extensive training epochs, etc. We are thus motivated to tackle these issues",
+        "Unsupervised graph representation learning is critical to a wide range of applications where labels may be scarce or expensive to procure. Contrastive learning (CL) is an increasingly popular paradigm for such settings and the state-of-the-art in unsupervised visual representation learning. Recent work attributes the success of visual CL to use of task-relevant augmentations and large, diverse datasets. Interestingly, graph CL frameworks report strong performance despite using orders of magnitud",
+        "Sensory input from multiple sources is crucial for robust and coherent human perception. Different sources contribute complementary explanatory factors. Similarly, research studies often collect multimodal imaging data, each of which can provide shared and unique information. This observation motivated the design of powerful multimodal self-supervised representation-learning algorithms. In this paper, we unify recent work on multimodal self-supervised learning under a single framework. Observing"
+      ],
+      "source_papers": [
+        {
+          "title": "Understanding Dimensional Collapse in Contrastive Self-supervised Learning",
+          "url": ""
+        },
+        {
+          "title": "Hard Negative Mixing for Contrastive Learning",
+          "url": ""
+        },
+        {
+          "title": "Extending Momentum Contrast with Cross Similarity Consistency Regularization",
+          "url": ""
+        },
+        {
+          "title": "Batch Curation for Unsupervised Contrastive Representation Learning",
+          "url": ""
+        },
+        {
+          "title": "When Does Contrastive Learning Preserve Adversarial Robustness from Pretraining to Finetuning?",
+          "url": ""
+        },
+        {
+          "title": "Decoupled Contrastive Learning",
+          "url": ""
+        },
+        {
+          "title": "Augmentations in Graph Contrastive Learning: Current Methodological Flaws & Towards Better Practices",
+          "url": ""
+        },
+        {
+          "title": "Self-Supervised Multimodal Domino: in Search of Biomarkers for Alzheimer's Disease",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "hybrid",
+      "retrieval_ms": 470.6,
+      "generation_ms": 244.8
+    },
+    {
+      "question": "How do vision transformers use self-attention for image classification?",
+      "answer": "According to Context 2, Vision Transformers (ViTs) rely on more flexible self-attention layers for image classification.",
+      "contexts": [
+        "Following their success in natural language processing, transformers have recently shown much promise for computer vision. The self-attention operation underlying transformers yields global interactions between all tokens ,i.e. words or image patches, and enables flexible modelling of image data beyond the local interactions of convolutions. This flexibility, however, comes with a quadratic complexity in time and memory, hindering application to long sequences and high-resolution images. We prop",
+        "Convolutional architectures have proven extremely successful for vision tasks. Their hard inductive biases enable sample-efficient learning, but come at the cost of a potentially lower performance ceiling. Vision Transformers (ViTs) rely on more flexible self-attention layers, and have recently outperformed CNNs for image classification. However, they require costly pre-training on large external datasets or distillation from pre-trained convolutional networks. In this paper, we ask the followin",
+        "Transformers have made great progress in dealing with computer vision tasks. However, existing vision transformers do not yet possess the ability of building the interactions among features of different scales, which is perceptually important to visual inputs. The reasons are two-fold: (1) Input embeddings of each layer are equal-scale, so no cross-scale feature can be extracted; (2) to lower the computational cost, some vision transformers merge adjacent embeddings inside the self-attention mod",
+        "Recent studies indicate that hierarchical Vision Transformer with a macro architecture of interleaved non-overlapped window-based self-attention \\& shifted-window operation is able to achieve state-of-the-art performance in various visual recognition tasks, and challenges the ubiquitous convolutional neural networks (CNNs) using densely slid kernels. Most follow-up works attempt to replace the shifted-window operation with other kinds of cross-window communication paradigms, while treating self-",
+        "Transformers have recently gained significant attention in the computer vision community. However, the lack of scalability of self-attention mechanisms with respect to image size has limited their wide adoption in state-of-the-art vision backbones. In this paper we introduce an efficient and scalable attention model we call multi-axis attention, which consists of two aspects: blocked local and dilated global attention. These design choices allow global-local spatial interactions on arbitrary inp",
+        "Transformers, composed of multiple self-attention layers, hold strong promises toward a generic learning primitive applicable to different data modalities, including the recent breakthroughs in computer vision achieving state-of-the-art (SOTA) standard accuracy. What remains largely unexplored is their robustness evaluation and attribution. In this work, we study the robustness of the Vision Transformer (ViT) against common corruptions and perturbations, distribution shifts, and natural adversar",
+        "Modelling long-range dependencies is critical for scene understanding tasks in computer vision. Although convolution neural networks (CNNs) have excelled in many vision tasks, they are still limited in capturing long-range structured relationships as they typically consist of layers of local kernels. A fully-connected graph, such as the self-attention operation in Transformers, is beneficial for such modelling, however, its computational overhead is prohibitive. In this paper, we propose a dynam",
+        "Recent advances in self-attention and pure multi-layer perceptrons (MLP) models for vision have shown great potential in achieving promising performance with fewer inductive biases. These models are generally based on learning interaction among spatial locations from raw data. The complexity of self-attention and MLP grows quadratically as the image size increases, which makes these models hard to scale up when high-resolution features are required. In this paper, we present the Global Filter Ne"
+      ],
+      "source_papers": [
+        {
+          "title": "XCiT: Cross-Covariance Image Transformers",
+          "url": ""
+        },
+        {
+          "title": "ConViT: Improving Vision Transformers with Soft Convolutional Inductive Biases",
+          "url": ""
+        },
+        {
+          "title": "CrossFormer: A Versatile Vision Transformer Hinging on Cross-scale Attention",
+          "url": ""
+        },
+        {
+          "title": "What Makes for Hierarchical Vision Transformer?",
+          "url": ""
+        },
+        {
+          "title": "MaxViT: Multi-Axis Vision Transformer",
+          "url": ""
+        },
+        {
+          "title": "Vision Transformers are Robust Learners",
+          "url": ""
+        },
+        {
+          "title": "Dynamic Graph Message Passing Networks",
+          "url": ""
+        },
+        {
+          "title": "Global Filter Networks for Image Classification",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "hybrid",
+      "retrieval_ms": 495.5,
+      "generation_ms": 164.1
+    },
+    {
+      "question": "How do GANs enable image editing and style manipulation?",
+      "answer": "Based on the provided context, GANs enable image editing and style manipulation by allowing for the manipulation of style vectors, leveraging the power of latent spaces, and modifying feature-space representations of images in a trained GAN model.",
+      "contexts": [
+        "While the quality of GAN image synthesis has improved tremendously in recent years, our ability to control and condition the output is still limited. Focusing on StyleGAN, we introduce a simple and effective method for making local, semantically-aware edits to a target output image. This is accomplished by borrowing elements from a source image, also a GAN output, via a novel manipulation of style vectors. Our method requires neither supervision from an external model, nor involves complex spati",
+        "Inspired by the ability of StyleGAN to generate highly realistic images in a variety of domains, much recent work has focused on understanding how to use the latent spaces of StyleGAN to manipulate generated and real images. However, discovering semantically meaningful latent manipulations typically involves painstaking human examination of the many degrees of freedom, or an annotated collection of images for each desired manipulation. In this work, we explore leveraging the power of recently in",
+        "We present a novel CNN-based image editing strategy that allows the user to change the semantic information of an image over an arbitrary region by manipulating the feature-space representation of the image in a trained GAN model. We will present two variants of our strategy: (1) spatial conditional batch normalization (sCBN), a type of conditional batch normalization with user-specifiable spatial weight maps, and (2) feature-blending, a method of directly modifying the intermediate features. Ou",
+        "Generative Adversarial Networks (GANs) have established themselves as a prevalent approach to image synthesis. Of these, StyleGAN offers a fascinating case study, owing to its remarkable visual quality and an ability to support a large array of downstream tasks. This state-of-the-art report covers the StyleGAN architecture, and the ways it has been employed since its conception, while also analyzing its severe limitations. It aims to be of use for both newcomers, who wish to get a grasp of the f",
+        "in popularity. Meanwhile, this same study has helped shed light on the inner workings and limitations of StyleGAN. We map out StyleGAN's impressive story through these investigations, and discuss the details that have made StyleGAN the go-to generator. We further elaborate on the visual priors StyleGAN constructs, and discuss their use in downstream discriminative tasks. Looking forward, we point out StyleGAN's limitations and speculate on current trends and promising directions for future resea",
+        "Recently, GAN inversion methods combined with Contrastive Language-Image Pretraining (CLIP) enables zero-shot image manipulation guided by text prompts. However, their applications to diverse real images are still difficult due to the limited GAN inversion capability. Specifically, these approaches often have difficulties in reconstructing images with novel poses, views, and highly variable contents compared to the training data, altering object identity, or producing unwanted image artifacts. T",
+        "Empirical works suggest that various semantics emerge in the latent space of Generative Adversarial Networks (GANs) when being trained to generate images. To perform real image editing, it requires an accurate mapping from the real image to the latent space to leveraging these learned semantics, which is important yet difficult. An in-domain GAN inversion approach is recently proposed to constraint the inverted code within the latent space by forcing the reconstructed image obtained from the inv",
+        "Artistic style transfer aims to transfer the style characteristics of one image onto another image while retaining its content. Existing approaches commonly leverage various normalization techniques, although these face limitations in adequately transferring diverse textures to different spatial locations. Self-Attention-based approaches have tackled this issue with partial success but suffer from unwanted artifacts. Motivated by these observations, this paper aims to combine the best of both wo",
+        "Generative Adversarial Networks (GANs) have achieved state-of-the-art performance for several image generation and manipulation tasks. Different works have improved the limited understanding of the latent space of GANs by embedding images into specific GAN architectures to reconstruct the original images. We present a novel StyleGAN-based autoencoder architecture, which can reconstruct images with very high quality across several data domains. We demonstrate a previously unknown grade of general"
+      ],
+      "source_papers": [
+        {
+          "title": "Editing in Style: Uncovering the Local Semantics of GANs",
+          "url": ""
+        },
+        {
+          "title": "StyleCLIP: Text-Driven Manipulation of StyleGAN Imagery",
+          "url": ""
+        },
+        {
+          "title": "Spatially Controllable Image Synthesis with Internal Representation Collaging",
+          "url": ""
+        },
+        {
+          "title": "State-of-the-Art in the Architecture, Methods and Applications of StyleGAN",
+          "url": ""
+        },
+        {
+          "title": "DiffusionCLIP: Text-Guided Diffusion Models for Robust Image Manipulation",
+          "url": ""
+        },
+        {
+          "title": "Force-in-domain GAN inversion",
+          "url": ""
+        },
+        {
+          "title": "SAFIN: Arbitrary Style Transfer With Self-Attentive Factorized Instance Normalization",
+          "url": ""
+        },
+        {
+          "title": "One Model to Reconstruct Them All: A Novel Way to Use the Stochastic Noise in StyleGAN",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "hybrid",
+      "retrieval_ms": 396.0,
+      "generation_ms": 9345.3
+    },
+    {
+      "question": "What methods improve few-shot learning generalization?",
+      "answer": "Based on the provided context, the following methods improve few-shot learning generalization:\n\n1. A large margin principle to improve the generalization capacity of metric-based methods (Context 1).\n2. A few-shot transfer learning method that helps a holographic image reconstruction deep neural network rapidly generalize to new types of samples using small datasets (Context 2).\n3. Model-agnostic meta-learning (MAML) that formulates prior knowledge as a common initialization across tasks (Context 3).\n4. An efficient learning algorithm based on Transformers that can be optimized on the fly given few labeled examples (Context 4).\n5. A dual relation propagation approach that learns from each other in a dual learning fashion to mitigate domain shift (Context 8).\n6. Six feature space data augmentation methods for Few-Shot Integration (FSI) problem (Context 9).\n\nNote that other methods are also mentioned in the context, but the above list only includes the ones that are explicitly stated to improve few-shot learning generalization.",
+      "contexts": [
+        "The key issue of few-shot learning is learning to generalize. This paper proposes a large margin principle to improve the generalization capacity of metric based methods for few-shot learning. To realize it, we develop a unified framework to learn a more discriminative metric space by augmenting the classification loss function with a large margin distance loss function for training. Extensive experiments on two state-of-the-art few-shot learning methods, graph neural networks and prototypical n",
+        "Deep learning-based methods in computational microscopy have been shown to be powerful but in general face some challenges due to limited generalization to new types of samples and requirements for large and diverse training data. Here, we demonstrate a few-shot transfer learning method that helps a holographic image reconstruction deep neural network rapidly generalize to new types of samples using small datasets. We pre-trained a convolutional recurrent neural network on a large dataset with d",
+        "Few-shot learning is a challenging problem where the goal is to achieve generalization from only few examples. Model-agnostic meta-learning (MAML) tackles the problem by formulating prior knowledge as a common initialization across tasks, which is then used to quickly adapt to unseen tasks. However, forcibly sharing an initialization can lead to conflicts among tasks and the compromised (undesired by tasks) location on optimization landscape, thereby hindering the task adaptation. Further, we ob",
+        "Few-shot algorithms aim at learning new tasks provided only a handful of training examples. In this work we investigate few-shot learning in the setting where the data points are sequences of tokens and propose an efficient learning algorithm based on Transformers. In the simplest setting, we append a token to an input sequence which represents the particular task to be undertaken, and show that the embedding of this token can be optimized on the fly given few labeled examples. Our approach does",
+        "In few-shot learning, a machine learning system learns from a small set of labelled examples relating to a specific task, such that it can generalize to new examples of the same task. Given the limited availability of labelled examples in such tasks, we wish to make use of all the information we can. Usually a model learns task-specific information from a small training-set (support-set) to predict on an unlabelled validation set (target-set). The target-set contains additional task-specific inf",
+        "Humans are capable of learning new concepts from small numbers of examples. In contrast, supervised deep learning models usually lack the ability to extract reliable predictive rules from limited data scenarios when attempting to classify new examples. This challenging scenario is commonly known as few-shot learning. Few-shot learning has garnered increased attention in recent years due to its significance for many real-world problems. Recently, new methods relying on meta-learning paradigms com",
+        "Zero-shot and few-shot learning aim to improve generalization to unseen concepts, which are promising in many realistic scenarios. Due to the lack of data in unseen domain, relation modeling between seen and unseen domains is vital for knowledge transfer in these tasks. Most existing methods capture seen-unseen relation implicitly via semantic embedding or feature generation, resulting in inadequate use of relation and some issues remain (e.g. domain shift). To tackle these challenges, we propos",
+        "relation utilization. A dual relation propagation approach is proposed, where relations captured by the generated graph are separately propagated from the seen and unseen subgraphs. The two propagations learn from each other in a dual learning fashion, which performs as an adaptation way for mitigating domain shift. All components are jointly optimized with a meta-learning strategy, and our TGG acts as an end-to-end framework unifying conventional zero-shot, generalized zero-shot and few-shot le",
+        "New conversation topics and functionalities are constantly being added to conversational AI agents like Amazon Alexa and Apple Siri. As data collection and annotation is not scalable and is often costly, only a handful of examples for the new functionalities are available, which results in poor generalization performance. We formulate it as a Few-Shot Integration (FSI) problem where a few examples are used to introduce a new intent. In this paper, we study six feature space data augmentation met"
+      ],
+      "source_papers": [
+        {
+          "title": "Large Margin Few-Shot Learning",
+          "url": ""
+        },
+        {
+          "title": "Few-shot Transfer Learning for Holographic Image Reconstruction using a Recurrent Neural Network",
+          "url": ""
+        },
+        {
+          "title": "Learning to Forget for Meta-Learning",
+          "url": ""
+        },
+        {
+          "title": "Few-shot Sequence Learning with Transformers",
+          "url": ""
+        },
+        {
+          "title": "Learning to learn via Self-Critique",
+          "url": ""
+        },
+        {
+          "title": "Looking back to lower-level information in few-shot learning",
+          "url": ""
+        },
+        {
+          "title": "TGG: Transferable Graph Generation for Zero-shot and Few-shot Learning",
+          "url": ""
+        },
+        {
+          "title": "A Closer Look At Feature Space Data Augmentation For Few-Shot Intent Classification",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "hybrid",
+      "retrieval_ms": 371.5,
+      "generation_ms": 10537.4
+    },
+    {
+      "question": "How does knowledge distillation compress large neural networks?",
+      "answer": "According to Context 1, knowledge distillation (KD) compresses large neural networks by transferring the knowledge captured by a large model (teacher) to a smaller model (student) using data samples.",
+      "contexts": [
+        "With the increasing popularity of deep learning on edge devices, compressing large neural networks to meet the hardware requirements of resource-constrained devices became a significant research direction. Numerous compression methodologies are currently being used to reduce the memory sizes and energy consumption of neural networks. Knowledge distillation (KD) is among such methodologies and it functions by using data samples to transfer the knowledge captured by a large model (teacher) to a sm",
+        "Knowledge distillation (KD) has proved to be an effective approach for deep neural network compression, which learns a compact network (student) by transferring the knowledge from a pre-trained, over-parameterized network (teacher). In traditional KD, the transferred knowledge is usually obtained by feeding training samples to the teacher network to obtain the class probabilities. However, the original training dataset is not always available due to storage costs or privacy issues. In this study",
+        "The deep layers of modern neural networks extract a rather rich set of features as an input propagates through the network. This paper sets out to harvest these rich intermediate representations for quantization with minimal accuracy loss while significantly reducing the memory footprint and compute intensity of the DNN. This paper utilizes knowledge distillation through teacher-student paradigm (Hinton et al., 2015) in a novel setting that exploits the feature extraction capability of DNNs for ",
+        "Often we wish to transfer representational knowledge from one neural network to another. Examples include distilling a large network into a smaller one, transferring knowledge from one sensory modality to a second, or ensembling a collection of models into a single estimator. Knowledge distillation, the standard approach to these problems, minimizes the KL divergence between the probabilistic outputs of a teacher and student network. We demonstrate that this objective ignores important structura",
+        "The quantization of deep neural networks (QDNNs) has been actively studied for deployment in edge devices. Recent studies employ the knowledge distillation (KD) method to improve the performance of quantized networks. In this study, we propose stochastic precision ensemble training for QDNNs (SPEQ). SPEQ is a knowledge distillation training scheme; however, the teacher is formed by sharing the model parameters of the student network. We obtain the soft labels of the teacher by changing the bit p",
+        "In recent years, deep neural networks have been successful in both industry and academia, especially for computer vision tasks. The great success of deep learning is mainly due to its scalability to encode large-scale data and to maneuver billions of model parameters. However, it is a challenge to deploy these cumbersome deep models on devices with limited resources, e.g., mobile phones and embedded devices, not only because of the high computational complexity but also the large storage require",
+        "Knowledge distillation is an effective technique that transfers knowledge from a large teacher model to a shallow student. However, just like massive classification, large scale knowledge distillation also imposes heavy computational costs on training models of deep neural networks, as the softmax activations at the last layer involve computing probabilities over numerous classes. In this work, we apply the idea of importance sampling which is often used in Neural Machine Translation on large sc",
+        "Knowledge distillation has recently become a popular technique to improve the model generalization ability on convolutional neural networks. However, its effect on graph neural networks is less than satisfactory since the graph topology and node attributes are likely to change in a dynamic way and in this case a static teacher model is insufficient in guiding student training. In this paper, we tackle this challenge by simultaneously training a group of graph neural networks in an online distill"
+      ],
+      "source_papers": [
+        {
+          "title": "Preventing Catastrophic Forgetting and Distribution Mismatch in Knowledge Distillation via Synthetic Data",
+          "url": ""
+        },
+        {
+          "title": "Data-Free Knowledge Distillation with Soft Targeted Transfer Set Synthesis",
+          "url": ""
+        },
+        {
+          "title": "Divide and Conquer: Leveraging Intermediate Feature Representations for Quantized Training of Neural Networks",
+          "url": ""
+        },
+        {
+          "title": "Contrastive Representation Distillation",
+          "url": ""
+        },
+        {
+          "title": "Stochastic Precision Ensemble: Self-Knowledge Distillation for Quantized Deep Neural Networks",
+          "url": ""
+        },
+        {
+          "title": "Knowledge Distillation: A Survey",
+          "url": ""
+        },
+        {
+          "title": "Accelerating Large Scale Knowledge Distillation via Dynamic Importance Sampling",
+          "url": ""
+        },
+        {
+          "title": "Online Adversarial Distillation for Graph Neural Networks",
+          "url": ""
+        }
+      ],
+      "retrieval_mode": "hybrid",
+      "retrieval_ms": 384.7,
+      "generation_ms": 8374.4
+    }
+  ],
+  "run_at": "2026-03-12 05:08:45",
+  "groq_model": "llama-3.1-8b-instant",
+  "judge_model": "gemini-1.5-flash",
+  "embed_model": "BAAI/bge-small-en-v1.5",
+  "rerank_model": "mixedbread-ai/mxbai-rerank-xsmall-v1"
+}

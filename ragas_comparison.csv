@@ -1,0 +1,4 @@
+Metric,Dense-only,Hybrid,Delta (Hybrid - Dense),Winner
+faithfulness,0.8333,0.9167,0.0834,Hybrid ✓
+answer_relevancy,0.92,0.9,-0.02,Dense ✓
+context_precision,0.4194,0.425,0.0056,Tie

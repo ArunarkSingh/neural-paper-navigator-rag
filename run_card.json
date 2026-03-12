@@ -1,0 +1,24 @@
+{
+  "dataset": "CShorten/ML-ArXiv-Papers",
+  "dataset_cols": [
+    "Unnamed: 0.1",
+    "Unnamed: 0",
+    "title",
+    "abstract"
+  ],
+  "num_papers_used": 15000,
+  "num_chunks": 15910,
+  "unique_papers_in_chunks": 14994,
+  "chunk_words": 220,
+  "chunk_overlap": 40,
+  "max_chunks_per_paper": 12,
+  "embed_model": "BAAI/bge-small-en-v1.5",
+  "embed_batch_size": 64,
+  "faiss_index": "IndexHNSWFlat (IP on normalized embeddings)",
+  "hnsw_m": 32,
+  "ef_search": 64,
+  "ef_construction": 200,
+  "reranker_used": true,
+  "rerank_model": "mixedbread-ai/mxbai-rerank-xsmall-v1",
+  "built_at": "2026-03-12 04:23:24"
+}
